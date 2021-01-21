@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { AppBar, Toolbar, Typography, Button } from "@material-ui/core";
-
+import {useNavbarStyles} from '../../styles';
+import { Link } from "react-router-dom";
+import logo from "../../images/logo.png";
 
 
 function NavBar(){
@@ -8,6 +10,8 @@ function NavBar(){
 const [navBackground, setNavBackground] = useState(false)
     
 const navRef = useRef(false)
+
+
 
 navRef.current = navBackground
 
@@ -30,8 +34,9 @@ useEffect(() => {
 
     
     return(
-        <AppBar position="static" style={{ boxShadow: 'none',transition: '1s ease', backgroundColor: navBackground ? 'rgba(22, 34, 45)' : 'transparent'}}>
+      <AppBar position="fixed" style={{ boxShadow: 'none',transition: '1s ease', backgroundColor: navBackground ? 'rgba(22, 34, 45)' : 'transparent'}}>
         <Toolbar>
+         <Logo/>
           <Typography variant="h6" >
             News
           </Typography>
@@ -40,5 +45,24 @@ useEffect(() => {
       </AppBar>
     )
 }
+
+
+
+function Logo() {
+    const classes = useNavbarStyles();
+  
+    return (
+      <div className={classes.logoContainer}>
+       
+          <div className={classes.logoWrapper}>
+          <Link to="/">
+            <img src={logo} alt="Instagram" className={classes.logo} />
+            </Link>
+          </div>
+          
+      </div>
+    );
+  }
+
 
 export default NavBar;
