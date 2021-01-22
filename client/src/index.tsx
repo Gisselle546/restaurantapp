@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {MapProvider} from './context/geoCords'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MapProvider>
+        <App />
+    </MapProvider>
+    
   </React.StrictMode>,
   document.getElementById('root')
 );

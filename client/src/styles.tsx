@@ -39,6 +39,15 @@ createStyles({
 
 export const useNavbarStyles = makeStyles(theme => ({
     
+
+        appBar:{
+            display:"flex",
+            justifyContent:"space-between"
+        },
+
+
+
+
         logoContainer: {
             display: "flex",
             minWidth: 50,
@@ -59,7 +68,32 @@ export const useNavbarStyles = makeStyles(theme => ({
         objectFit: "contain",
         
        
-      }
+      },
+
+
+      inputContainer:{
+        marginTop:"5rem", 
+        width:"100%", 
+        position:"absolute", 
+        display:"flex", 
+        justifyContent:"center",
+        alignItems:"center",
+      },
+
+      input: {
+        height: 60,
+        width:"90%",
+        fontSize: "1.2rem",
+        background: "rgba(var(--b3f,250,250,250),1)",
+        border: "solid 1px rgba(var(--b6a,219,219,219),1)",
+        borderRadius: 3,
+        color: "rgba(var(--i1d,38,38,38),1)",
+        outline: 0,
+        padding: "3px 3px 3px 26px",
+        zIndex: 2,
+      
+      },
+     
      
 
 
