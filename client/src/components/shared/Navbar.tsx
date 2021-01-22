@@ -45,7 +45,7 @@ useEffect(() => {
 
     
     return(
-      <AppBar position="fixed" style={{ boxShadow: 'none',transition: '1s ease', backgroundColor: navBackground ? 'rgba(22, 34, 45)' : 'transparent'}}>
+      <AppBar position="fixed" style={{ boxShadow: 'none',transition: '1s ease', backgroundColor: navBackground ? 'rgba(22, 34, 45)' : 'rgba(255,179,186)'}}>
         <Toolbar className={classes.appBar}>
          <Logo/>
             <div className={classes.inputContainer}>
@@ -82,10 +82,20 @@ function Logo() {
       const [query, setQuery] = React.useState("");
       const [center, setCenter] = React.useState({lat:42.3265,lng:-122.8756});
       const {geocords,setGeocords}= React.useContext(MapContext);
+      const prevCenter = useRef(center);
+       
+    console.log(geocords);
+
+      useEffect(() => {
+
+        if (center !== prevCenter.current) {
+            setGeocords(center);
+            
+            
+        }
+        
      
        
-      useEffect(() => {
-        setGeocords(center)
        
       }, [center])
 

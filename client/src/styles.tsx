@@ -72,7 +72,7 @@ export const useNavbarStyles = makeStyles(theme => ({
 
 
       inputContainer:{
-        marginTop:"5rem", 
+        marginTop:"1rem", 
         width:"100%", 
         position:"absolute", 
         display:"flex", 
@@ -98,3 +98,18 @@ export const useNavbarStyles = makeStyles(theme => ({
 
 
 }));
+
+
+export const useMapStyles = makeStyles(theme => ({
+
+    map:{
+        height:"100vh",
+        width:"100%"
+
+    }
+
+
+
+
+
+}))

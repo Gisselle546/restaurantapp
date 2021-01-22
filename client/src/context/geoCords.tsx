@@ -1,4 +1,4 @@
-import React, { createContext, useEffect } from 'react';
+import React, { createContext, useEffect, useRef } from 'react';
 import { useState } from 'react';
 
 export const MapContext = createContext<{
@@ -17,13 +17,22 @@ export const MapContext = createContext<{
 export const MapProvider = (props: { children: React.ReactNode; }) => {
   const [geocords, setGeocords] = useState({lat:42.3265,lng:-122.8756});
 
+  const prevGeo = useRef(geocords);
+
   useEffect(() => {
-    localStorage.setItem(
-      "location",
-      JSON.stringify(geocords)
-    );
+
+    if (geocords !== prevGeo.current) {
+        
+        localStorage.setItem(
+            "location",
+            JSON.stringify(geocords)
+          );
+        
+        
+    }
     
-  });
+    
+  },[geocords]);
     
 
 
